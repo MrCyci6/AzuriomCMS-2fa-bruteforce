@@ -1,0 +1,10 @@
+{
+  "name": "2fabruteforce",
+  "version": "1.0.0",
+  "description": "Simple 2fa bruteforce for Azuriom",
+  "author": "MrCyci6",
+  "main": "./index.js",
+  "dependencies": {
+    "selenium-webdriver": "^4.9.2"
+  }
+}
