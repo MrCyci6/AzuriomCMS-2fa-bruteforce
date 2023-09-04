@@ -3,7 +3,7 @@
 const webdriver = require('selenium-webdriver');
 const {By, until} = require('selenium-webdriver')
 
-async function manipulerSiteWeb() {
+async function bruteforce() {
 
     try {
         const driver = new webdriver.Builder()
@@ -32,4 +32,4 @@ async function manipulerSiteWeb() {
     }
 }
 
-manipulerSiteWeb();
+bruteforce();
