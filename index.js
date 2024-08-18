@@ -27,22 +27,14 @@ bouton.click();`)
         status = await driver.executeScript(`return document.readyState`);
         if(status == "complete") {
             while(true) {
-                await driver.executeScript(`var number = Math.floor(Math.random() * 900000);
-if(!String(number).split('')[5] && String(number).split('')[4] && String(number).split('')[3] && String(number).split('')[2] && String(number).split('')[1] && String(number).split('')[0]) {
-    number = '0' + String(number)
-} else if(!String(number).split('')[5] && !String(number).split('')[4] && String(number).split('')[3] && String(number).split('')[2] && String(number).split('')[1] && String(number).split('')[0]) {
-    number = '00' + String(number)
-} else if(!String(number).split('')[5] && !String(number).split('')[4] && !String(number).split('')[3] && String(number).split('')[2] && String(number).split('')[1] && String(number).split('')[0]) {
-    number = '000' + String(number)
-} else if(!String(number).split('')[5] && !String(number).split('')[4] && !String(number).split('')[3] && !String(number).split('')[2] && String(number).split('')[1] && String(number).split('')[0]) {
-    number = '0000' + String(number)
-} else if(!String(number).split('')[5] && !String(number).split('')[4] && !String(number).split('')[3] && !String(number).split('')[2] && !String(number).split('')[1] && String(number).split('')[0]) { 
-    number = '00000' + String(number)
-}
-var code = document.getElementById('code');
-code.value = String(number);
-var bouton = document.querySelector('.btn-primary');
-bouton.click();`)
+                await driver.executeScript(`
+                    var number = Math.floor(Math.random() * 900000);
+                    number = String(number).padStart(6, '0');
+                    var code = document.getElementById('code');
+                    code.value = number;
+                    var bouton = document.querySelector('.btn-primary');
+                    bouton.click();
+                `)
             }
         }
 
